@@ -67,8 +67,7 @@ static void setup_groups(struct root_profile *profile, struct cred *cred)
 		return;
 	}
 
-	int i;
-	for (i = 0; i < ngroups; i++) {
+	for (int i = 0; i < ngroups; i++) {
 		gid_t gid = profile->groups[i];
 		kgid_t kgid = make_kgid(current_user_ns(), gid);
 		if (!gid_valid(kgid)) {
